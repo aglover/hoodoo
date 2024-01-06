@@ -97,7 +97,7 @@ Verify the count of rows in the `employee` table has increased by 1 by running t
 
 10. You can shut both Docker containers down via the `docker compose down` command. 
 
-### References
+## References
 
 1. [Employees database for Postgres](https://github.com/h8/employees-database)
 1. [Bitnami Docker distribution documentation](https://hub.docker.com/r/bitnami/postgresql)
