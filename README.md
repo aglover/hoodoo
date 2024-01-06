@@ -7,6 +7,10 @@
 An example Docker Compose that spins up a Postgres primary database along with a single 
 read replica. There are directions below to seed the primary and verify replication. 
 
+In a Postgres read replica setup, SQL writes flow into the primary and that new data is then automatically replicated to replicas. As their name implies, read replicas are designed for read-only traffic. 
+
+This design is an example of horizontal scaling -- a database with heavy read-write traffic can be made more efficient by offloading some traffic to other instances. In this case, one or more read replicas can offload read traffic from a database thereby giving it some breathing room. 
+
 ## Postgres replication example
 
 There are two files of importance in this repository: `docker-compose.yml` which defines two
@@ -72,7 +76,7 @@ And the result should be the same as what you previously saw in the primary:
 (1 row)
 ```
 
-8. In a Postgres read replica setup, SQL writes flow into the primary and that new data is then automatically replicated to replicas. As their name implies, read replicas are designed for read-only traffic. This design is an example of horizontal scaling -- a database with heavy read-write traffic can be made more efficient by offloading some traffic to other instances. In this case, one or more read replicas can offload read traffic from a database thereby giving it some breathing room. You can see this in action by adding a record to the primary and then verifying it shows up in a replica. 
+8. You can see Postgres replication in action by adding a record to the primary and then verifying it shows up in a replica. 
 
 Shell into the primary (i.e. port `5432`) and add a new employee record: 
 
